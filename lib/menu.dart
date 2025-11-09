@@ -8,8 +8,8 @@ class MyHomePage extends StatelessWidget {
   final String kelas = "F"; //kelas
 
   final List<ItemHomepage> items = [
-    ItemHomepage("See Football News", Icons.newspaper , Colors.blue),
-    ItemHomepage("Add News", Icons.add , Colors.green),
+    ItemHomepage("See Gear", Icons.newspaper , Colors.blue),
+    ItemHomepage("Add Gear", Icons.add , Colors.green),
     ItemHomepage("Logout", Icons.logout , Colors.red),
   ];
 
@@ -56,7 +56,7 @@ class MyHomePage extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.only(top: 16.0),
                     child: Text(
-                      'Selamat datang di Football News',
+                      'Selamat datang di Coach Gear!',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0,
