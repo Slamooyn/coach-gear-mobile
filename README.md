@@ -121,3 +121,51 @@ Jika kamu melakukan **hot restart** saat counter bernilai `5`, maka nilai counte
 Gunakan **hot reload** untuk mempercepat iterasi tampilan, dan **hot restart** ketika perubahan besar pada kode membutuhkan inisialisasi ulang seluruh aplikasi.
 
 </details>
+
+<details align ="justify">
+    <summary><b>Tugas 8</b></summary>
+
+### 🧭 1. Apa perbedaan antara `Navigator.push()` dan `Navigator.pushReplacement()` pada Flutter?  
+**Jawaban:**  
+`Navigator.push()` digunakan untuk **menambahkan halaman baru di atas stack halaman yang sudah ada**, sehingga pengguna masih bisa kembali ke halaman sebelumnya menggunakan tombol “back”.  
+Sementara `Navigator.pushReplacement()` akan **mengganti halaman saat ini dengan halaman baru**, sehingga pengguna **tidak bisa kembali** ke halaman sebelumnya.  
+
+**Contoh penggunaan di aplikasi *Football Shop*:**  
+- `Navigator.push()` cocok digunakan saat pengguna membuka **detail produk**, agar bisa kembali ke halaman daftar produk.  
+- `Navigator.pushReplacement()` lebih cocok saat berpindah ke **halaman utama (Home)** dari halaman login atau splash screen, karena halaman sebelumnya tidak perlu diakses lagi.
+
+---
+
+### 🧱 2. Bagaimana memanfaatkan hierarchy widget seperti `Scaffold`, `AppBar`, dan `Drawer` untuk membangun struktur halaman yang konsisten di seluruh aplikasi?  
+**Jawaban:**  
+`Scaffold` menyediakan kerangka dasar untuk setiap halaman, seperti area konten utama, `AppBar` di bagian atas, dan `Drawer` di sisi kiri.  
+Dengan menggunakan struktur yang sama di setiap halaman (`Scaffold` + `AppBar` + `Drawer`), aplikasi akan terlihat **konsisten dan mudah digunakan**.  
+
+**Contoh di aplikasi *Football Shop*:**  
+Setiap halaman seperti *Home*, *Tambah Produk*, dan *Daftar Produk* menggunakan `Scaffold` dengan:
+- `AppBar` berisi judul halaman seperti “Football Shop”  
+- `Drawer` (`LeftDrawer`) berisi navigasi ke halaman lain  
+
+Hal ini membuat navigasi antarhalaman terasa seragam dan profesional.
+
+---
+
+### 🧩 3. Dalam konteks desain antarmuka, apa kelebihan menggunakan layout widget seperti `Padding`, `SingleChildScrollView`, dan `ListView` saat menampilkan elemen-elemen form?  
+**Jawaban:**  
+Widget layout ini membantu mengatur tampilan agar **nyaman, responsif, dan tidak overflow**:
+- `Padding`: memberi jarak antar-elemen agar tampilan tidak terlalu rapat.  
+- `SingleChildScrollView`: memungkinkan pengguna **scroll** saat isi form terlalu panjang untuk layar.  
+- `ListView`: menampilkan kumpulan widget secara vertikal dan bisa discroll otomatis.  
+
+**Contoh di aplikasi *Football Shop*:**  
+Pada halaman *Tambah Produk*, seluruh elemen form (`TextFormField`, `DropdownButton`, dan `ElevatedButton`) dibungkus dengan `SingleChildScrollView` agar tetap bisa digulir meskipun keyboard terbuka.
+
+---
+
+### 🎨 4. Bagaimana menyesuaikan warna tema agar aplikasi *Football Shop* memiliki identitas visual yang konsisten dengan brand toko?  
+**Jawaban:**  
+Warna tema dapat disesuaikan menggunakan `ThemeData` di file utama (`main.dart`).  
+Misalnya, warna dominan biru tua (`Colors.indigo`) dipilih untuk mencerminkan profesionalitas dan kepercayaan.  
+
+Dengan pengaturan ini, seluruh komponen seperti tombol, AppBar, dan ikon akan tampil konsisten sesuai warna brand *Football Shop*.
+</details>
