@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:coachgear_mobile/menu.dart';          // Halaman utama produk
 import 'package:coachgear_mobile/productform.dart';   // Form tambah produk
-import 'package:coachgear_mobile/product_card.dart';  // Daftar produk
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -10,26 +9,31 @@ class LeftDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
+        padding: EdgeInsets.zero, // biar header nempel di atas
         children: [
-          const DrawerHeader(
-            // Bagian drawer header
-            decoration: BoxDecoration(
+          // Bagian header drawer
+          DrawerHeader(
+            decoration: const BoxDecoration(
               color: Colors.indigo,
             ),
             child: Column(
-              children: [
-                Text(
-                  'Bekasan Product',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    'Coach Gear Product',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-                Padding(padding: EdgeInsets.all(10)),
+                SizedBox(height: 10),
                 Text(
-                  "Kelola dan temukan produk bekas berkualitas di sini!",
+                  "Kelola dan temukan produk berkualitas di sini!",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15,
@@ -41,17 +45,15 @@ class LeftDrawer extends StatelessWidget {
             ),
           ),
 
-          // Bagian routing
+          // Bagian routing menu
           ListTile(
             leading: const Icon(Icons.home_outlined),
             title: const Text('Home'),
-            // Bagian redirection ke halaman utama (MyHomePage)
             onTap: () {
+              // Navigasi ke halaman utama
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => MyHomePage(),
-                ),
+                MaterialPageRoute(builder: (context) => MyHomePage()),
               );
             },
           ),
@@ -59,16 +61,16 @@ class LeftDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.add_box_outlined),
             title: const Text('Tambah Produk'),
-            // Bagian redirection ke ProductForm
             onTap: () {
+              // Navigasi ke form tambah produk
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => ProductForm(),
-                ),
+                MaterialPageRoute(builder: (context) => ProductForm()),
               );
             },
           ),
+
+          const Divider(),
         ],
       ),
     );
